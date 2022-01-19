@@ -12,12 +12,6 @@ def create_new_post(data_list):
     del data_list.__dict__["_id"]
     return create_new_post
 
-def del_post(id):
-    data_list = db.posts.find_one({"id": id})
-    db.posts.delete_one(data_list)
-    del data_list["_id"]
-    return jsonify(data_list), 200
-
 def del_id(data_list):
     posts = []
     for post in data_list:

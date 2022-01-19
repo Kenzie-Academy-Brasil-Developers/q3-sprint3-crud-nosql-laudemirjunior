@@ -33,7 +33,8 @@ def posts_view(app: Flask):
             data_list = db.posts.find_one({"id": id})
             db.posts.delete_one(data_list)
             del data_list["_id"]
-            return jsonify(data_list), 200
+            return jsonify(data_list), 202
+            
         except TypeError: 
             return jsonify(msg= "Post buscado não existe"), 404
     
